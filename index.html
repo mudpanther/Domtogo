@@ -1,627 +1,686 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dom ToGo - Authentic Italian in New City, NY</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dom ToGo | Authentic Italian Cuisine — New City, NY</title>
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
-            overflow-x: hidden;
-        }
+  <!-- Primary SEO -->
+  <meta name="description" content="Authentic Italian flavors with homemade quality. Family takeout specials, fresh sides, and catering services in New City, NY." />
+  <link rel="canonical" href="https://domtogo.com/" />
+  <meta name="theme-color" content="#c41e3a" />
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #ff6b6b;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23ff6b6b" width="1200" height="600"/><circle fill="%23ee5a24" cx="200" cy="100" r="80" opacity="0.7"/><circle fill="%23feca57" cx="800" cy="200" r="60" opacity="0.8"/><circle fill="%23ff9ff3" cx="400" cy="400" r="100" opacity="0.6"/><circle fill="%2348dbfb" cx="1000" cy="450" r="70" opacity="0.7"/></svg>');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-
-        .hero-content {
-            color: white;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            animation: slideUp 1s ease-out;
-        }
-
-        .hero > p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            animation: slideUp 1s ease-out 0.3s both;
-        }
-
-        .family-story {
-            max-width: 600px;
-            margin: 0 auto 2rem auto;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: slideUp 1s ease-out 0.5s both;
-        }
-
-        .family-story p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            opacity: 0.95;
-        }
-
-        .family-story .tagline {
-            font-size: 1.1rem;
-            color: #feca57;
-            font-weight: 500;
-            margin-bottom: 0;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            animation: slideUp 1s ease-out 0.6s both;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
-        }
-
-        /* Main Content */
-        main {
-            background: white;
-            position: relative;
-            z-index: 1;
-        }
-
-        section {
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Menu Section */
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .menu-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .menu-card:hover {
-            transform: translateY(-10px) rotate(1deg);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .menu-card h3 {
-            color: #333;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .menu-card p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .price {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #ff6b6b;
-        }
-
-        .menu-items {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .menu-items li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .menu-items li:hover {
-            color: #ff6b6b;
-            transform: translateX(10px);
-            background: linear-gradient(90deg, transparent, rgba(255, 107, 107, 0.1));
-        }
-
-        /* Hours Section */
-        .hours-container {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
-            padding: 3rem;
-            color: white;
-            text-align: center;
-        }
-
-        .hours-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .hour-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1rem;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .hour-item:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.05);
-        }
-
-        .day {
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .time {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .contact-card {
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-            color: white;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.3);
-        }
-
-        .contact-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-card h3 {
-            margin-bottom: 1rem;
-        }
-
-        .contact-card p,
-        .contact-card a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .contact-card a:hover {
-            text-decoration: underline;
-        }
-
-        /* Chicken animations */
-        .chicken-decoration {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            font-size: 3rem;
-            animation: chickenwiggle 3s ease-in-out infinite;
-            z-index: 1000;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .chicken-decoration:hover {
-            font-size: 3.5rem;
-        }
-
-        .chicken-divider {
-            text-align: center;
-            margin: 3rem 0;
-            font-size: 2rem;
-            animation: march 3s ease-in-out infinite;
-        }
-
-        /* Scroll Progress */
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-            z-index: 10000;
-            transition: width 0.1s ease;
-        }
-
-        /* Animations */
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes chickenwiggle {
-            0%, 100% {
-                transform: rotate(-5deg);
-            }
-            50% {
-                transform: rotate(5deg);
-            }
-        }
-
-        @keyframes march {
-            0%, 100% {
-                transform: translateX(0);
-            }
-            50% {
-                transform: translateX(20px);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        @keyframes marchAcross {
-            0% {
-                transform: translateX(-200px);
-            }
-            100% {
-                transform: translateX(calc(100vw + 200px));
-            }
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-
-            .family-story {
-                margin: 0 1rem 2rem 1rem;
-                padding: 1rem;
-            }
-
-            .family-story p {
-                font-size: 0.9rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .menu-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hours-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <style>
+    :root{
+      --black:#0a0a0a;--charcoal:#1a1a1a;--dark-gray:#2a2a2a;--mid-gray:#666666;--light-gray:#999999;--cream:#f9f7f4;--off-white:#fdfcfa;--red:#c41e3a;--red-dark:#9a1829;--red-light:#d63447;--green:#2d6a4f;--gold:#d4af37;
+      --serif:'Cormorant Garamond',Georgia,serif;--display:'Playfair Display',Georgia,serif;--sans:'Montserrat',-apple-system,system-ui,sans-serif;
+      --transition:all 0.6s cubic-bezier(0.4,0,0.2,1);--shadow-sm:0 2px 8px rgba(0,0,0,0.08);--shadow-md:0 4px 24px rgba(0,0,0,0.12);--shadow-lg:0 8px 40px rgba(0,0,0,0.16);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:var(--sans);font-weight:300;line-height:1.7;color:var(--dark-gray);background:var(--off-white);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+    body.loading{overflow:hidden}
+    img{max-width:100%;display:block;height:auto}
+    a{text-decoration:none;color:inherit;transition:var(--transition)}
+    .container{max-width:1400px;margin:0 auto;padding:0 clamp(20px,5vw,80px)}
+    
+    /* Loading Screen */
+    .loader-wrapper{position:fixed;inset:0;background:linear-gradient(135deg,#c41e3a,#d63447);display:grid;place-items:center;z-index:9999;transition:opacity 0.6s ease,visibility 0.6s ease}
+    .loader-wrapper.hidden{opacity:0;visibility:hidden}
+    .loader-content{text-align:center;animation:fadeInScale 0.8s ease-out}
+    .loader-text{font-family:var(--display);font-size:24px;color:white;letter-spacing:3px;margin-top:20px;text-shadow:2px 2px 6px rgba(0,0,0,0.3)}
+    .loader-bar{width:200px;height:2px;background:rgba(255,255,255,0.3);margin:24px auto 0;position:relative;overflow:hidden}
+    .loader-bar::after{content:'';position:absolute;top:0;left:0;height:100%;width:40%;background:linear-gradient(90deg,transparent,white,transparent);animation:loading 1.5s ease-in-out infinite}
+    @keyframes loading{0%{transform:translateX(-100%)}100%{transform:translateX(400%)}}
+    @keyframes fadeInScale{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+    
+    /* Scroll Progress Bar */
+    .scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--red),var(--red-light));z-index:9998;transform-origin:left;transform:scaleX(0);transition:transform 0.1s ease}
+    
+    /* Navigation */
+    .nav-wrapper{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(253,252,250,0.85);backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(196,30,58,0.15);transition:all 0.4s ease;transform:translateY(0)}
+    .nav-wrapper.hidden{transform:translateY(-100%)}
+    .nav-wrapper.scrolled{background:rgba(253,252,250,0.95);box-shadow:var(--shadow-md)}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;max-width:1400px;margin:0 auto;padding-left:clamp(20px,5vw,80px);padding-right:clamp(20px,5vw,80px)}
+    .brand{display:flex;align-items:center;gap:16px;font-family:var(--display);font-size:clamp(18px,2.5vw,24px);font-weight:600;letter-spacing:0.5px;color:var(--charcoal);position:relative}
+    .brand::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--red);transition:width 0.4s ease}
+    .brand:hover::after{width:100%}
+    .brand span{font-size:32px;filter:drop-shadow(0 2px 8px rgba(196,30,58,0.3))}
+    .nav-links{display:flex;gap:clamp(24px,3vw,48px);list-style:none;align-items:center}
+    .nav-links a{font-size:14px;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;color:var(--mid-gray);position:relative;padding:8px 0;overflow:hidden}
+    .nav-links a::before{content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:var(--red);transform:translateX(-50%);transition:width 0.4s ease}
+    .nav-links a:hover{color:var(--charcoal)}
+    .nav-links a:hover::before{width:100%}
+    .btn-reserve{padding:12px 32px;background:var(--red);color:white;font-size:13px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;border:1px solid var(--red);border-radius:0;cursor:pointer;position:relative;overflow:hidden;z-index:1}
+    .btn-reserve::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;background:var(--red-dark);border-radius:50%;transform:translate(-50%,-50%);transition:width 0.6s ease,height 0.6s ease;z-index:-1}
+    .btn-reserve:hover::before{width:300px;height:300px}
+    .btn-reserve:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,30,58,0.4)}
+    
+    /* Hero with Parallax */
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;color:white}
+    .hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1498579150354-977475b7ea0b?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;transform:scale(1.1);transition:transform 0.1s ease}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(rgba(196,30,58,0.75),rgba(214,52,71,0.85))}
+    .hero-content{position:relative;z-index:2;max-width:900px;padding:120px 40px 80px;text-align:center}
+    .hero-content>*{opacity:0;animation:fadeInUp 1s ease-out forwards}
+    .hero-content>*:nth-child(1){animation-delay:0.2s}
+    .hero-content>*:nth-child(2){animation-delay:0.4s}
+    .hero-content>*:nth-child(3){animation-delay:0.6s}
+    .hero-content>*:nth-child(4){animation-delay:0.8s}
+    .hero-content>*:nth-child(5){animation-delay:1s}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    .hero-badge{display:inline-block;font-family:var(--serif);font-size:14px;font-style:italic;letter-spacing:2px;color:rgba(255,255,255,0.95);margin-bottom:24px;padding:8px 24px;border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);position:relative;overflow:hidden}
+    .hero-badge::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);animation:shimmer 3s ease-in-out infinite}
+    @keyframes shimmer{0%{left:-100%}100%{left:200%}}
+    .hero h1{font-size:clamp(36px,6vw,72px);font-weight:500;color:white;margin-bottom:20px;line-height:1.1;letter-spacing:-0.5px}
+    .hero-subtitle{font-family:var(--serif);font-size:clamp(20px,3vw,28px);font-style:italic;color:rgba(255,255,255,0.95);margin-bottom:32px;font-weight:300}
+    .family-story{max-width:700px;margin:0 auto 32px;padding:24px;background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:4px;border:1px solid rgba(255,255,255,0.2)}
+    .family-story p{font-size:15px;line-height:1.8;margin-bottom:16px;color:rgba(255,255,255,0.95)}
+    .family-story p:last-child{margin-bottom:0;font-style:italic;color:#ffd700;font-size:16px}
+    .hero-cta{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+    .btn-primary{padding:16px 40px;background:white;color:var(--red);font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border:1px solid white;transition:var(--transition);display:inline-block;position:relative;overflow:hidden}
+    .btn-primary::after{content:'→';position:absolute;right:20px;opacity:0;transition:all 0.4s ease}
+    .btn-primary:hover{padding-right:50px;background:var(--red-light);color:white;border-color:var(--red-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(214,52,71,0.4)}
+    .btn-primary:hover::after{opacity:1;right:20px}
+    .btn-secondary{padding:16px 40px;background:transparent;color:white;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border:1px solid rgba(255,255,255,0.4);transition:var(--transition);display:inline-block;position:relative;overflow:hidden}
+    .btn-secondary::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:rgba(255,255,255,0.1);transition:left 0.4s ease}
+    .btn-secondary:hover{background:rgba(255,255,255,0.1);border-color:white}
+    .btn-secondary:hover::before{left:100%}
+    
+    /* Scroll Reveal Elements */
+    .reveal{opacity:0;transform:translateY(60px);transition:all 1s cubic-bezier(0.4,0,0.2,1)}
+    .reveal.active{opacity:1;transform:translateY(0)}
+    .reveal-left{opacity:0;transform:translateX(-60px);transition:all 1s cubic-bezier(0.4,0,0.2,1)}
+    .reveal-left.active{opacity:1;transform:translateX(0)}
+    .reveal-right{opacity:0;transform:translateX(60px);transition:all 1s cubic-bezier(0.4,0,0.2,1)}
+    .reveal-right.active{opacity:1;transform:translateX(0)}
+    .reveal-scale{opacity:0;transform:scale(0.9);transition:all 1s cubic-bezier(0.4,0,0.2,1)}
+    .reveal-scale.active{opacity:1;transform:scale(1)}
+    
+    /* Section Styling */
+    section{padding:clamp(80px,12vw,140px) 0;position:relative}
+    .section-header{text-align:center;max-width:800px;margin:0 auto 80px}
+    .section-label{display:inline-block;font-size:12px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:16px;position:relative;padding:0 20px}
+    .section-label::before,.section-label::after{content:'';position:absolute;top:50%;width:40px;height:1px;background:var(--red)}
+    .section-label::before{left:100%;margin-left:8px}
+    .section-label::after{right:100%;margin-right:8px}
+    .section-label[style*="color: rgba(255"]{color:rgba(255,255,255,0.9)}
+    .section-label[style*="color: rgba(255"]::before,
+    .section-label[style*="color: rgba(255"]::after{background:rgba(255,255,255,0.4)}
+    .section-title{font-size:clamp(32px,5vw,56px);font-weight:500;color:var(--charcoal);margin-bottom:24px;line-height:1.2;position:relative;display:inline-block}
+    .section-divider{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--red),transparent);margin:32px auto;position:relative}
+    .section-divider::before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:6px;height:6px;background:var(--red);border-radius:50%}
+    .section-description{font-size:18px;font-weight:300;color:var(--mid-gray);line-height:1.8;max-width:700px;margin:0 auto}
+    
+    /* About Section */
+    .about{background:white;position:relative;overflow:hidden}
+    .about::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(196,30,58,0.03),transparent 70%);pointer-events:none}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,8vw,100px);align-items:center}
+    .about-content{padding:40px 0}
+    .about-content h3{font-size:clamp(24px,3vw,36px);margin-bottom:24px;color:var(--charcoal);position:relative;display:inline-block}
+    .about-content h3::after{content:'';position:absolute;bottom:-8px;left:0;width:60px;height:3px;background:var(--red)}
+    .about-content p{margin-bottom:20px;font-size:16px;line-height:1.9;color:var(--mid-gray)}
+    .about-content p:last-of-type{margin-bottom:32px}
+    .features{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px}
+    .feature-item{padding:24px;background:var(--off-white);border-left:3px solid var(--red);transition:var(--transition);position:relative;overflow:hidden}
+    .feature-item::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(196,30,58,0.05),transparent);transition:left 0.6s ease}
+    .feature-item:hover{background:var(--cream);transform:translateX(8px);box-shadow:var(--shadow-sm)}
+    .feature-item:hover::before{left:100%}
+    .feature-item h4{font-size:14px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+    .feature-item p{font-size:14px;margin:0;color:var(--mid-gray)}
+    .about-image{position:relative;height:600px;overflow:hidden;border-radius:4px}
+    .about-image::before{content:'';position:absolute;inset:0;background:linear-gradient(45deg,rgba(196,30,58,0.1),transparent);z-index:1;opacity:0;transition:opacity 0.6s ease}
+    .about-image:hover::before{opacity:1}
+    .about-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.8s cubic-bezier(0.4,0,0.2,1)}
+    .about-image:hover img{transform:scale(1.08)}
+    
+    /* Menu Section */
+    .menu{background:white}
+    .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:clamp(24px,4vw,40px);max-width:1200px;margin:0 auto}
+    .menu-card{background:var(--off-white);border:1px solid rgba(196,30,58,0.1);padding:32px;transition:var(--transition);position:relative;overflow:hidden;opacity:0;transform:translateY(30px);animation:fadeInUp 0.8s ease-out forwards}
+    .menu-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(196,30,58,0.05),transparent 70%);transform:scale(0);transition:transform 0.6s ease;pointer-events:none}
+    .menu-card:hover{border-color:var(--red);box-shadow:var(--shadow-md);transform:translateY(-4px)}
+    .menu-card:hover::before{transform:scale(1)}
+    .menu-card h3{font-family:var(--display);font-size:22px;font-weight:500;color:var(--charcoal);margin-bottom:20px;border-bottom:2px solid rgba(196,30,58,0.2);padding-bottom:12px;position:relative}
+    .menu-card h3::after{content:'';position:absolute;bottom:-2px;left:0;width:50px;height:2px;background:var(--red)}
+    .menu-items{list-style:none;margin-top:16px}
+    .menu-items li{padding:12px 0;border-bottom:1px solid rgba(196,30,58,0.08);transition:all 0.3s ease;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+    .menu-items li:hover{color:var(--red);transform:translateX(8px);background:linear-gradient(90deg,transparent,rgba(196,30,58,0.05))}
+    .menu-items strong{font-weight:600;font-size:15px;flex:1}
+    .menu-items small{display:block;font-size:13px;color:var(--mid-gray);margin-top:4px;font-weight:300}
+    .price{font-family:var(--serif);font-weight:600;color:var(--red);font-size:16px;white-space:nowrap}
+    
+    /* Location */
+    .location{background:white}
+    .location-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:start}
+    .map-container{height:500px;border:1px solid rgba(196,30,58,0.2);box-shadow:var(--shadow-md);overflow:hidden;position:relative}
+    .map-container::before{content:'';position:absolute;inset:0;border:2px solid transparent;transition:border-color 0.6s ease;pointer-events:none;z-index:1}
+    .map-container:hover::before{border-color:rgba(196,30,58,0.4)}
+    .map-container iframe{width:100%;height:100%;border:0;filter:grayscale(0.3) contrast(1.1);transition:filter 0.6s ease}
+    .map-container:hover iframe{filter:grayscale(0) contrast(1)}
+    .hours-card{background:var(--off-white);padding:48px;border-left:3px solid var(--red);position:relative;overflow:hidden}
+    .hours-card::before{content:'';position:absolute;top:0;right:0;width:100px;height:100px;background:radial-gradient(circle,rgba(196,30,58,0.1),transparent 70%);pointer-events:none}
+    .hours-card h3{font-size:28px;margin-bottom:32px;color:var(--charcoal)}
+    .hours-line{display:flex;justify-content:space-between;padding:20px 0;border-bottom:1px solid rgba(196,30,58,0.15);font-size:15px;transition:all 0.3s ease}
+    .hours-line:hover{padding-left:8px;background:rgba(196,30,58,0.03)}
+    .hours-line:last-child{border-bottom:0}
+    .hours-line span{color:var(--mid-gray);font-weight:300}
+    .hours-line strong{color:var(--charcoal);font-weight:600}
+    .contact-info{margin-top:40px;padding-top:32px;border-top:1px solid rgba(196,30,58,0.15)}
+    .contact-item{margin-bottom:20px;transition:transform 0.3s ease}
+    .contact-item:hover{transform:translateX(4px)}
+    .contact-item label{display:block;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+    .contact-item p{font-size:16px;color:var(--charcoal);font-weight:400}
+    
+    /* CTA Section */
+    .cta{background:linear-gradient(rgba(196,30,58,0.92),rgba(214,52,71,0.92)),url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2000&auto=format&fit=crop') center/cover;background-attachment:fixed;color:white;text-align:center;position:relative}
+    .cta::before{content:'';position:absolute;inset:0;background:url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></svg>');opacity:0.3;animation:float-pattern 20s linear infinite}
+    @keyframes float-pattern{0%{transform:translateY(0)}100%{transform:translateY(-100px)}}
+    .cta .section-title{color:white;margin-bottom:20px}
+    .cta .section-description{color:rgba(255,255,255,0.9);margin-bottom:40px}
+    
+    /* Footer */
+    footer{background:var(--black);color:rgba(255,255,255,0.6);padding:80px 0 40px;position:relative}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px}
+    .footer-brand{max-width:350px}
+    .footer-brand h4{font-size:24px;color:var(--red-light);margin-bottom:20px}
+    .footer-brand p{font-size:14px;line-height:1.8;color:rgba(255,255,255,0.5)}
+    .footer-section h4{font-size:14px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--red-light);margin-bottom:24px}
+    .footer-links{list-style:none}
+    .footer-links li{margin-bottom:12px}
+    .footer-links a{font-size:14px;color:rgba(255,255,255,0.6);transition:all 0.3s ease;position:relative;display:inline-block}
+    .footer-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--red-light);transition:width 0.3s ease}
+    .footer-links a:hover{color:var(--red-light);transform:translateX(4px)}
+    .footer-links a:hover::after{width:100%}
+    .footer-bottom{text-align:center;padding-top:40px;border-top:1px solid rgba(255,255,255,0.1);font-size:13px;color:rgba(255,255,255,0.4)}
+    
+    /* Floating Reserve Button */
+    .float-reserve{position:fixed;bottom:40px;right:40px;z-index:999;animation:float 3s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    .float-reserve a{display:flex;align-items:center;gap:12px;padding:16px 28px;background:var(--red);color:white;font-size:13px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;border-radius:50px;box-shadow:0 8px 32px rgba(196,30,58,0.5);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden}
+    .float-reserve a::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;background:rgba(255,255,255,0.3);border-radius:50%;transform:translate(-50%,-50%);transition:width 0.6s ease,height 0.6s ease}
+    .float-reserve a:hover::before{width:200px;height:200px}
+    .float-reserve a:hover{background:var(--red-dark);transform:translateY(-4px) scale(1.05);box-shadow:0 12px 40px rgba(196,30,58,0.6)}
+    
+    /* Responsive */
+    @media (max-width:1024px){
+      .about-grid,.location-grid{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr 1fr;gap:40px}
+      .about-image{height:400px}
+      section > div > div[style*="grid-template-columns: 1fr 1fr"]{grid-template-columns:1fr!important}
+    }
+    @media (max-width:768px){
+      .nav-links{display:none}
+      .menu-grid{grid-template-columns:1fr}
+      .features{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+      .float-reserve{bottom:20px;right:20px}
+      .hours-card{padding:32px}
+      .section-label::before,.section-label::after{display:none}
+    }
+  </style>
 </head>
-<body>
-    <div class="scroll-progress"></div>
-    
-    <!-- Chicken parade -->
-    <div style="position: fixed; bottom: 20px; left: -200px; z-index: 500; font-size: 2rem; animation: marchAcross 10s linear infinite;">
-        🐔 🐓 🐔 🐓 🐔
+<body class="loading">
+
+  <!-- Loading Screen -->
+  <div class="loader-wrapper">
+    <div class="loader-content">
+      <div style="font-size:80px;margin-bottom:20px">🍝</div>
+      <div class="loader-text">DOM TOGO</div>
+      <div class="loader-bar"></div>
     </div>
-    
-    <!-- Floating chicken -->
-    <div style="position: fixed; top: 20%; right: 10%; font-size: 3rem; z-index: 100; animation: float 4s ease-in-out infinite;">🐔</div>
-    
-    <div class="chicken-decoration">🐔</div>
-    
-    <header>
-        <nav>
-            <div class="logo">🐔 Dom ToGo</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#hours">Hours</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  </div>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>🐔 Dom ToGo 🐔</h1>
-            <p>Authentic Italian Flavors in New City, NY</p>
-            <div class="family-story">
-                <p>We treat Dom ToGo like they did when my parents were growing up. You know everyone and the ones you don't you get to know. Food is the best way to connect with people and their culture. At Dom ToGo we like to be the smile groups share with one another when they are eating together. Each dish is our favorite and done the same way we had them growing up. Dom ToGo is perfect for a fast on-the-go meal at both gourmet and homemade quality that will feed your entire family!</p>
-                <p class="tagline"><em>You know what they say.... Busy Moms Love Doms!</em></p>
+  <!-- Scroll Progress -->
+  <div class="scroll-progress"></div>
+
+  <!-- Navigation -->
+  <div class="nav-wrapper" id="navbar">
+    <nav>
+      <a class="brand" href="domtogo-index.html">
+        <span>🍝</span>
+        <span>DOM TOGO</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="domtogo-index.html">Home</a></li>
+        <li><a href="domtogo-story.html">Our Story</a></li>
+        <li><a href="domtogo-menu.html">Menu</a></li>
+        <li><a href="#location">Visit</a></li>
+      </ul>
+      <a class="btn-reserve" href="tel:8452155770">Call to Order</a>
+    </nav>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div style="font-size:80px;margin-bottom:20px">🍝</div>
+      <div class="hero-badge">Family Owned • New City</div>
+      <h1>Authentic Italian Cuisine</h1>
+      <p class="hero-subtitle">Where Family, Food, and Tradition Come Together</p>
+      <div class="family-story">
+        <p>We treat Dom ToGo like they did when my parents were growing up. You know everyone and the ones you don't you get to know. Food is the best way to connect with people and their culture.</p>
+        <p>At Dom ToGo we like to be the smile groups share with one another when they are eating together. Each dish is our favorite and done the same way we had them growing up. Dom ToGo is perfect for a fast on-the-go meal at both gourmet and homemade quality that will feed your entire family!</p>
+        <p><strong>You know what they say.... Busy Moms Love Doms!</strong></p>
+      </div>
+      <div class="hero-cta">
+        <a class="btn-primary" href="#about">Discover Our Story</a>
+        <a class="btn-secondary" href="#location">Plan Your Visit</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Our Philosophy</span>
+        <h2 class="section-title">Family Recipes, Made Fresh Daily</h2>
+        <div class="section-divider"></div>
+        <p class="section-description">At Dom ToGo, we bring the warmth of Italian home cooking to your table. Every dish is prepared with love, using authentic recipes and the finest ingredients.</p>
+      </div>
+      
+      <div class="about-grid">
+        <div class="about-content reveal-left">
+          <h3>Homemade Quality, Fast & Convenient</h3>
+          <p>Located in the heart of New City, Dom ToGo reimagines traditional Italian home cooking for today's busy families. We understand the value of a home-cooked meal, and we're here to provide that same warmth and quality when time is tight.</p>
+          
+          <p>Our daily specials feature authentic Italian dishes made from scratch, just like Nonna used to make. From our tender chicken cutlets to our housemade meatballs, every item on our menu is crafted with care and traditional techniques passed down through generations.</p>
+          
+          <p>Whether you're grabbing lunch on a busy workday or picking up dinner for the whole family, Dom ToGo delivers that perfect combination of convenience and quality that keeps our community coming back.</p>
+          
+          <div class="features">
+            <div class="feature-item">
+              <h4>Fresh Daily</h4>
+              <p>Made from scratch every day with authentic ingredients</p>
             </div>
-            <a href="#menu" class="cta-button">Explore Our Menu</a>
+            <div class="feature-item">
+              <h4>Family Recipes</h4>
+              <p>Traditional Italian dishes perfected over generations</p>
+            </div>
+            <div class="feature-item">
+              <h4>Quick Service</h4>
+              <p>Fast, convenient takeout without sacrificing quality</p>
+            </div>
+            <div class="feature-item">
+              <h4>Community Focused</h4>
+              <p>Serving New City families with love and care</p>
+            </div>
+          </div>
         </div>
-    </section>
+        
+        <div class="about-image reveal-right">
+          <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=1600&auto=format&fit=crop" alt="Italian cuisine"/>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <main>
-        <div class="chicken-divider">🐔 🐓 🐔 🐓 🐔</div>
+  <!-- Menu Highlights -->
+  <section class="menu" id="menu-preview">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Daily Specials</span>
+        <h2 class="section-title">Our Most Popular Dishes</h2>
+        <div class="section-divider"></div>
+        <p class="section-description">From daily takeout specials to fresh sides and catering services, we offer authentic Italian cuisine perfect for any occasion.</p>
+      </div>
+      
+      <div class="menu-grid">
+        <div class="menu-card reveal-scale" style="animation-delay:0.1s">
+          <h3>🍽️ Takeout Specials</h3>
+          <p style="color:var(--red);font-weight:600;margin-bottom:16px">$15.00 - $35.00</p>
+          <p>Fresh, delicious family takeout specials made daily (except Sundays). Perfect for sharing!</p>
+          <p style="margin-top:16px"><strong>Hours:</strong> Mon-Fri 2:30pm-7pm<br>Saturday 12pm-5pm</p>
+          <p style="margin-top:12px;font-style:italic;color:var(--mid-gray)">Call 845-215-5770 or check our Facebook for today's special!</p>
+        </div>
 
-        <section id="menu" class="container">
-            <h2 class="section-title">Our Menu</h2>
-            <div class="menu-grid">
-                <div class="menu-card">
-                    <h3>🍗 Takeout Specials</h3>
-                    <div class="price">$15.00 – $35.00</div>
-                    <p>Daily family takeout specials (except Sundays). Fresh, delicious, and perfect for sharing!</p>
-                    <p><strong>Hours:</strong> Mon-Fri 2:30pm-7pm, Sat 12pm-5pm</p>
-                    <p>Call 845-215-5770 or check our Facebook for today's special!</p>
-                </div>
+        <div class="menu-card reveal-scale" style="animation-delay:0.2s">
+          <h3>🥪 Lunch Specials</h3>
+          <p>Fresh sandwiches, pasta, and salads available daily (except Sundays)</p>
+          <p style="margin-top:16px"><strong>Hours:</strong> 11am-2pm</p>
+          <p style="margin-top:12px;font-style:italic;color:var(--mid-gray)">Call or visit our Facebook for today's lunch options!</p>
+        </div>
 
-                <div class="menu-card">
-                    <h3>🥪 Lunch Specials</h3>
-                    <p>Fresh sandwiches, pasta, and salads available daily (except Sundays)</p>
-                    <p><strong>Hours:</strong> 11am-2pm</p>
-                    <p>Call or visit our Facebook for today's lunch options!</p>
-                </div>
+        <div class="menu-card reveal-scale" style="animation-delay:0.3s">
+          <h3>🎉 Catering Services</h3>
+          <p>Perfect for any occasion with unbeatable quality and great prices!</p>
+          <ul class="menu-items">
+            <li><div><strong>Weddings</strong></div></li>
+            <li><div><strong>Family Functions</strong></div></li>
+            <li><div><strong>Holiday Parties</strong></div></li>
+            <li><div><strong>Corporate Events</strong></div></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div style="text-align:center;margin-top:60px">
+        <a class="btn-primary" href="domtogo-menu.html">View Full Menu</a>
+      </div>
+    </div>
+  </section>
 
-                <div class="menu-card">
-                    <h3>🍽️ Fresh Sides</h3>
-                    <ul class="menu-items">
-                        <li>Stuffed Artichokes</li>
-                        <li>🐔 Chicken Cutlets</li>
-                        <li>Housemade Meatballs</li>
-                        <li>Sautéed Broccoli Rabe</li>
-                        <li>Cannoli's with Homemade Filling</li>
-                        <li>Rice Balls</li>
-                        <li>Potato Croquettes</li>
-                        <li>Eggplant (Various Preparations)</li>
-                    </ul>
-                    <p><em>Call for daily availability</em></p>
-                </div>
+  <!-- Why Choose Us -->
+  <section style="background:var(--cream);padding:clamp(80px,12vw,140px) 0">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">What Sets Us Apart</span>
+        <h2 class="section-title">The Dom ToGo Difference</h2>
+        <div class="section-divider"></div>
+        <p class="section-description">Every dish, from our famous chicken cutlets to our housemade cannoli, reflects our dedication to quality and our love for Italian tradition.</p>
+      </div>
+      
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;margin-top:60px">
+        <div class="reveal" style="text-align:center;padding:40px 24px;background:white;border-radius:4px;transition:var(--transition)">
+          <div style="font-size:48px;margin-bottom:20px">👨‍🍳</div>
+          <h3 style="font-size:20px;margin-bottom:16px;color:var(--charcoal)">Authentic Recipes</h3>
+          <p style="color:var(--mid-gray);line-height:1.8">Traditional Italian recipes made the same way our families prepared them, bringing authentic flavors to every dish.</p>
+        </div>
+        
+        <div class="reveal" style="text-align:center;padding:40px 24px;background:white;border-radius:4px;transition:var(--transition);animation-delay:0.1s">
+          <div style="font-size:48px;margin-bottom:20px">🥘</div>
+          <h3 style="font-size:20px;margin-bottom:16px;color:var(--charcoal)">Fresh Daily</h3>
+          <p style="color:var(--mid-gray);line-height:1.8">Everything is made fresh from scratch each day using quality ingredients and time-honored cooking methods.</p>
+        </div>
+        
+        <div class="reveal" style="text-align:center;padding:40px 24px;background:white;border-radius:4px;transition:var(--transition);animation-delay:0.2s">
+          <div style="font-size:48px;margin-bottom:20px">⚡</div>
+          <h3 style="font-size:20px;margin-bottom:16px;color:var(--charcoal)">Quick & Convenient</h3>
+          <p style="color:var(--mid-gray);line-height:1.8">Fast takeout service without compromising on quality. Perfect for busy families who want homemade meals.</p>
+        </div>
+        
+        <div class="reveal" style="text-align:center;padding:40px 24px;background:white;border-radius:4px;transition:var(--transition);animation-delay:0.3s">
+          <div style="font-size:48px;margin-bottom:20px">❤️</div>
+          <h3 style="font-size:20px;margin-bottom:16px;color:var(--charcoal)">Made with Love</h3>
+          <p style="color:var(--mid-gray);line-height:1.8">Every dish is prepared with the same care and attention we'd give to our own family's meals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-                <div class="menu-card">
-                    <h3>🎉 Catering Services</h3>
-                    <p>Perfect for any occasion with unbeatable quality and great prices!</p>
-                    <ul class="menu-items">
-                        <li>Weddings</li>
-                        <li>Family Functions</li>
-                        <li>Holiday Parties</li>
-                        <li>Corporate Events</li>
-                    </ul>
-                    <p>Call 845-215-5770 or message us on Facebook for catering packages</p>
-                </div>
+  <!-- The Experience -->
+  <section style="background:white;padding:clamp(80px,12vw,140px) 0">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(60px,10vw,120px);align-items:center">
+        <div class="reveal-left">
+          <span class="section-label" style="display:block;text-align:left;padding:0;margin-bottom:24px">The Experience</span>
+          <h2 style="font-size:clamp(32px,5vw,48px);font-weight:500;color:var(--charcoal);margin-bottom:32px;line-height:1.2">Italian Comfort Food, Made Easy</h2>
+          <p style="font-size:17px;line-height:1.9;color:var(--mid-gray);margin-bottom:24px">There's something special about Italian home cooking—the aroma of garlic and herbs, the satisfaction of a perfectly cooked meal, the joy of sharing food with loved ones. At Dom ToGo, we bring that magic to your table.</p>
+          <p style="font-size:17px;line-height:1.9;color:var(--mid-gray);margin-bottom:24px">Our chicken cutlets are tender and golden, our meatballs are perfectly seasoned, and our stuffed artichokes are a labor of love. Each dish reflects the care and tradition of Italian family cooking.</p>
+          <p style="font-size:17px;line-height:1.9;color:var(--mid-gray);margin-bottom:32px">Whether you're picking up lunch on a busy weekday or bringing home dinner for the family, we're here to make your life easier with food that tastes like home.</p>
+          <a class="btn-primary" href="tel:8452155770" style="display:inline-block">Call to Order</a>
+        </div>
+        
+        <div class="reveal-right" style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+          <div style="grid-column:1/-1;height:300px;border-radius:4px;overflow:hidden;box-shadow:var(--shadow-md)">
+            <img src="https://images.unsplash.com/photo-1498579150354-977475b7ea0b?q=80&w=1000&auto=format&fit=crop" alt="Italian food" style="width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+          </div>
+          <div style="height:250px;border-radius:4px;overflow:hidden;box-shadow:var(--shadow-md)">
+            <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=800&auto=format&fit=crop" alt="Fresh pasta" style="width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+          </div>
+          <div style="height:250px;border-radius:4px;overflow:hidden;box-shadow:var(--shadow-md)">
+            <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=800&auto=format&fit=crop" alt="Italian dishes" style="width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials / Quote Section -->
+  <section style="background:white;padding:clamp(80px,12vw,140px) 0">
+    <div class="container">
+      <div class="reveal" style="max-width:900px;margin:0 auto;text-align:center">
+        <div style="font-size:64px;color:var(--red);margin-bottom:24px;line-height:1">"</div>
+        <p style="font-family:var(--serif);font-size:clamp(24px,3vw,32px);font-style:italic;color:var(--charcoal);line-height:1.6;margin-bottom:32px">Food is the best way to connect with people and their culture. At Dom ToGo, we like to be the smile groups share with one another when they are eating together.</p>
+        <div style="font-size:16px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--red)">— The Dom ToGo Family</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community & Values -->
+  <section style="background:linear-gradient(135deg,var(--red-dark),var(--red));color:white;padding:clamp(80px,12vw,140px) 0;position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background:url('data:image/svg+xml,<svg width=\"100\" height=\"100\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"100\" height=\"100\" fill=\"none\"/><circle cx=\"50\" cy=\"50\" r=\"1\" fill=\"white\" opacity=\"0.1\"/></svg>');opacity:0.2"></div>
+    <div class="container" style="position:relative;z-index:2">
+      <div class="section-header reveal">
+        <span class="section-label" style="color:rgba(255,255,255,0.9)">Our Promise</span>
+        <h2 class="section-title" style="color:white">More Than Just Food</h2>
+        <div class="section-divider"></div>
+        <p class="section-description" style="color:rgba(255,255,255,0.95)">At Dom ToGo, we believe food brings people together. Every meal is an opportunity to create memories and celebrate the Italian tradition of family and togetherness.</p>
+      </div>
+      
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;margin-top:60px">
+        <div class="reveal" style="text-align:center;padding:32px 20px">
+          <div style="font-size:56px;margin-bottom:20px;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.2))">🏠</div>
+          <h3 style="font-size:20px;margin-bottom:16px;font-weight:600;letter-spacing:0.5px">Family First</h3>
+          <p style="color:rgba(255,255,255,0.9);line-height:1.8;font-size:15px">Treating every customer like family, just like they did when our parents were growing up.</p>
+        </div>
+        
+        <div class="reveal" style="text-align:center;padding:32px 20px;animation-delay:0.1s">
+          <div style="font-size:56px;margin-bottom:20px;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.2))">🤝</div>
+          <h3 style="font-size:20px;margin-bottom:16px;font-weight:600;letter-spacing:0.5px">Community Driven</h3>
+          <p style="color:rgba(255,255,255,0.9);line-height:1.8;font-size:15px">Proud to serve the New City community with honest, quality food at fair prices.</p>
+        </div>
+        
+        <div class="reveal" style="text-align:center;padding:32px 20px;animation-delay:0.2s">
+          <div style="font-size:56px;margin-bottom:20px;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.2))">🍝</div>
+          <h3 style="font-size:20px;margin-bottom:16px;font-weight:600;letter-spacing:0.5px">Tradition & Quality</h3>
+          <p style="color:rgba(255,255,255,0.9);line-height:1.8;font-size:15px">Authentic Italian recipes made with care, keeping traditions alive one meal at a time.</p>
+        </div>
+        
+        <div class="reveal" style="text-align:center;padding:32px 20px;animation-delay:0.3s">
+          <div style="font-size:56px;margin-bottom:20px;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.2))">💪</div>
+          <h3 style="font-size:20px;margin-bottom:16px;font-weight:600;letter-spacing:0.5px">Here For You</h3>
+          <p style="color:rgba(255,255,255,0.9);line-height:1.8;font-size:15px">Making busy days easier with homemade quality meals that feed your entire family!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location -->
+  <section id="location" class="location">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Visit Us</span>
+        <h2 class="section-title">Location & Hours</h2>
+        <div class="section-divider"></div>
+      </div>
+      
+      <div class="location-grid">
+        <div class="map-container reveal-left">
+          <iframe 
+            title="Dom ToGo Location" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade" 
+            allowfullscreen
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3004.6349692344447!2d-73.9906014!3d41.14249399999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2c2fa4ba830df%3A0xf82b963ee4d52b13!2s145%20S%20Main%20St%2C%20New%20City%2C%20NY%2010956!5e0!3m2!1sen!2sus!4v1762663460668!5m2!1sen!2sus">
+          </iframe>
+        </div>
+        
+        <div class="hours-card reveal-right">
+          <h3>Hours</h3>
+          
+          <div class="hours-line">
+            <span>Monday - Friday</span>
+            <strong>2:30 PM – 7:00 PM</strong>
+          </div>
+          <div class="hours-line">
+            <span>Saturday</span>
+            <strong>12:00 PM – 5:00 PM</strong>
+          </div>
+          <div class="hours-line">
+            <span>Sunday</span>
+            <strong>Closed</strong>
+          </div>
+          <div class="hours-line">
+            <span>Lunch (Mon-Sat)</span>
+            <strong>11:00 AM – 2:00 PM</strong>
+          </div>
+          
+          <div class="contact-info">
+            <div class="contact-item">
+              <label>Address</label>
+              <p>145 S Main St<br>New City, NY 10956</p>
             </div>
-        </section>
-
-        <div class="chicken-divider">🐓 🐔 🐓 🐔 🐓</div>
-
-        <section id="hours" class="container">
-            <h2 class="section-title">Hours</h2>
-            <div class="hours-container">
-                <div class="hours-grid">
-                    <div class="hour-item">
-                        <div class="day">Monday</div>
-                        <div class="time">2:30pm - 7:00pm</div>
-                    </div>
-                    <div class="hour-item">
-                        <div class="day">Tuesday</div>
-                        <div class="time">2:30pm - 7:00pm</div>
-                    </div>
-                    <div class="hour-item">
-                        <div class="day">Wednesday</div>
-                        <div class="time">2:30pm - 7:00pm</div>
-                    </div>
-                    <div class="hour-item">
-                        <div class="day">Thursday</div>
-                        <div class="time">2:30pm - 7:00pm</div>
-                    </div>
-                    <div class="hour-item">
-                        <div class="day">Friday</div>
-                        <div class="time">2:30pm - 7:00pm</div>
-                    </div>
-                    <div class="hour-item">
-                        <div class="day">Saturday</div>
-                        <div class="time">12:00pm - 5:00pm</div>
-                    </div>
-                    <div class="hour-item">
-                        <div class="day">Sunday</div>
-                        <div class="time">Closed</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="chicken-divider">🐔 🐓 🐔 🐓 🐔</div>
-
-        <section id="contact" class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <div class="contact-icon">📞</div>
-                    <h3>Call Us</h3>
-                    <p><a href="tel:8452155770">845-215-5770</a></p>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-icon">📍</div>
-                    <h3>Location</h3>
-                    <p>New City, NY<br>Nanuet Area</p>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-icon">📱</div>
-                    <h3>Follow Us</h3>
-                    <p><a href="https://www.facebook.com/profile.php?id=100091288653094" target="_blank">Facebook</a></p>
-                    <p><a href="https://www.instagram.com/explore/locations/168434347108671/dom-togo-nanuet/" target="_blank">Instagram</a></p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <script>
-        // Fresh clean JavaScript - no duplicates
-        document.addEventListener('DOMContentLoaded', function() {
             
-            // Smooth scrolling
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
-            });
+            <div class="contact-item">
+              <label>Phone</label>
+              <p><a href="tel:8452155770">845-215-5770</a></p>
+            </div>
+            
+            <div class="contact-item">
+              <label>Follow Us</label>
+              <p>
+                <a href="https://www.facebook.com/profile.php?id=100091288653094" target="_blank" rel="noopener">Facebook</a> | 
+                <a href="https://www.instagram.com/explore/locations/168434347108671/dom-togo-nanuet/" target="_blank" rel="noopener">Instagram</a>
+              </p>
+            </div>
+          </div>
+          
+          <a class="btn-primary" href="https://www.google.com/maps/place/145+S+Main+St,+New+City,+NY+10956" target="_blank" rel="noopener" style="margin-top:32px;display:inline-block">Get Directions</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            // Scroll progress bar
-            window.addEventListener('scroll', () => {
-                const scrollProgress = document.querySelector('.scroll-progress');
-                const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-                scrollProgress.style.width = scrolled + '%';
-            });
+  <!-- CTA -->
+  <section class="cta reveal">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Ready to Order?</h2>
+        <p class="section-description">Call us today to find out about our daily specials, or visit our Facebook page for the latest menu updates!</p>
+      </div>
+      
+      <div style="max-width:700px;margin:32px auto;padding:32px;background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:4px;border:1px solid rgba(255,255,255,0.2)">
+        <p style="font-family:var(--serif);font-size:18px;font-style:italic;line-height:1.8;color:white;margin-bottom:16px">You know what they say.... Busy Moms Love Doms! Experience authentic Italian home cooking without the hassle. Perfect for families on the go.</p>
+        <p style="font-size:14px;color:rgba(255,255,255,0.9);margin:0">📞 Call 845-215-5770 to order or ask about today's specials</p>
+      </div>
+      
+      <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:40px">
+        <a href="tel:8452155770" style="padding:16px 40px;background:white;color:var(--red);font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border:1px solid white;border-radius:50px;transition:var(--transition);display:inline-block">📞 Call to Order</a>
+        <a href="https://www.facebook.com/profile.php?id=100091288653094" target="_blank" rel="noopener" style="padding:16px 40px;background:transparent;color:white;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border:1px solid rgba(255,255,255,0.4);border-radius:50px;transition:var(--transition);display:inline-block">📱 Visit Our Facebook</a>
+      </div>
+    </div>
+  </section>
 
-            // Chicken click counter
-            let clicks = 0;
-            const chicken = document.querySelector('.chicken-decoration');
-            if (chicken) {
-                chicken.addEventListener('click', function() {
-                    clicks++;
-                    this.style.transform = 'scale(1.3) rotate(360deg)';
-                    const types = ['🐔', '🐓', '🍗', '🥚', '🐤'];
-                    this.textContent = types[clicks % types.length];
-                    
-                    setTimeout(() => {
-                        this.style.transform = 'scale(1) rotate(0deg)';
-                    }, 500);
-                    
-                    if (clicks === 10) {
-                        alert('🐔 You found the secret! 🐔');
-                    }
-                });
-            }
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>DOM TOGO</h4>
+          <p>Bringing authentic Italian home cooking to New City families. Made fresh daily with love, tradition, and the finest ingredients.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="domtogo-index.html">Home</a></li>
+            <li><a href="domtogo-story.html">Our Story</a></li>
+            <li><a href="domtogo-menu.html">Menu</a></li>
+            <li><a href="#location">Visit</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Hours</h4>
+          <ul class="footer-links">
+            <li>Mon-Fri: 2:30pm - 7:00pm</li>
+            <li>Saturday: 12:00pm - 5:00pm</li>
+            <li>Sunday: Closed</li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li>145 S Main St</li>
+            <li>New City, NY 10956</li>
+            <li><br></li>
+            <li><a href="tel:8452155770">845-215-5770</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2025 Dom ToGo. All Rights Reserved. | Authentic Italian Cuisine</p>
+      </div>
+    </div>
+  </footer>
 
-            console.log('🐔 Chickens are ready! Look for the parade at the bottom!');
-        });
-    </script>
+  <!-- Floating Reserve Button -->
+  <div class="float-reserve">
+    <a href="tel:8452155770">
+      <span>📞</span> Call Now
+    </a>
+  </div>
+
+  <script>
+    // Loading screen
+    window.addEventListener('load',()=>{
+      setTimeout(()=>{
+        document.querySelector('.loader-wrapper').classList.add('hidden');
+        document.body.classList.remove('loading');
+      },800);
+    });
+    
+    // Scroll progress bar
+    window.addEventListener('scroll',()=>{
+      const scrollProgress=document.querySelector('.scroll-progress');
+      const windowHeight=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+      const scrolled=(window.scrollY/windowHeight);
+      scrollProgress.style.transform=`scaleX(${scrolled})`;
+    });
+    
+    // Navbar scroll effects
+    let lastScroll=0;
+    window.addEventListener('scroll',()=>{
+      const navbar=document.getElementById('navbar');
+      const currentScroll=window.scrollY;
+      
+      if(currentScroll>50){
+        navbar.classList.add('scrolled');
+      }else{
+        navbar.classList.remove('scrolled');
+      }
+      
+      if(currentScroll>lastScroll&&currentScroll>500){
+        navbar.classList.add('hidden');
+      }else{
+        navbar.classList.remove('hidden');
+      }
+      
+      lastScroll=currentScroll;
+    });
+    
+    // Parallax effect for hero
+    window.addEventListener('scroll',()=>{
+      const heroBg=document.getElementById('heroBg');
+      const scrolled=window.scrollY;
+      if(heroBg){
+        heroBg.style.transform=`translateY(${scrolled*0.5}px) scale(1.1)`;
+      }
+    });
+    
+    // Scroll reveal animations
+    const revealElements=document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale');
+    
+    const revealOnScroll=()=>{
+      revealElements.forEach(el=>{
+        const elementTop=el.getBoundingClientRect().top;
+        const elementVisible=150;
+        
+        if(elementTop<window.innerHeight-elementVisible){
+          el.classList.add('active');
+        }
+      });
+    };
+    
+    window.addEventListener('scroll',revealOnScroll);
+    revealOnScroll(); // Check on load
+  </script>
 </body>
 </html>
