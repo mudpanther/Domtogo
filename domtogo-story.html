@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Our Story | Dom ToGo | Authentic Italian Cuisine</title>
+
+  <!-- Primary SEO -->
+  <meta name="description" content="Discover the story behind Dom ToGo. Family recipes, Italian tradition, and homemade quality for New City families." />
+  <link rel="canonical" href="https://domtogo.com/story" />
+  <meta name="theme-color" content="#c41e3a" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --black:#0a0a0a;--charcoal:#1a1a1a;--dark-gray:#2a2a2a;--mid-gray:#666666;--light-gray:#999999;--cream:#f9f7f4;--off-white:#fdfcfa;--red:#c41e3a;--red-dark:#9a1829;--red-light:#d63447;--green:#2d6a4f;--gold:#d4af37;
+      --serif:'Cormorant Garamond',Georgia,serif;--display:'Playfair Display',Georgia,serif;--sans:'Montserrat',-apple-system,system-ui,sans-serif;
+      --transition:all 0.6s cubic-bezier(0.4,0,0.2,1);--shadow-sm:0 2px 8px rgba(0,0,0,0.08);--shadow-md:0 4px 24px rgba(0,0,0,0.12);--shadow-lg:0 8px 40px rgba(0,0,0,0.16);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:var(--sans);font-weight:300;line-height:1.7;color:var(--dark-gray);background:var(--off-white);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+    img{max-width:100%;display:block;height:auto}
+    a{text-decoration:none;color:inherit;transition:var(--transition)}
+    .container{max-width:1400px;margin:0 auto;padding:0 clamp(20px,5vw,80px)}
+    
+    /* Scroll Progress Bar */
+    .scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--red),var(--red-light));z-index:9998;transform-origin:left;transform:scaleX(0);transition:transform 0.1s ease}
+    
+    /* Navigation */
+    .nav-wrapper{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(253,252,250,0.95);backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(196,30,58,0.15);box-shadow:var(--shadow-sm)}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;max-width:1400px;margin:0 auto;padding-left:clamp(20px,5vw,80px);padding-right:clamp(20px,5vw,80px)}
+    .brand{display:flex;align-items:center;gap:16px;font-family:var(--display);font-size:clamp(18px,2.5vw,24px);font-weight:600;letter-spacing:0.5px;color:var(--charcoal);position:relative}
+    .brand::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--red);transition:width 0.4s ease}
+    .brand:hover::after{width:100%}
+    .brand span{font-size:32px;filter:drop-shadow(0 2px 8px rgba(196,30,58,0.3))}
+    .nav-links{display:flex;gap:clamp(24px,3vw,48px);list-style:none;align-items:center}
+    .nav-links a{font-size:14px;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;color:var(--mid-gray);position:relative;padding:8px 0;overflow:hidden}
+    .nav-links a::before{content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:var(--red);transform:translateX(-50%);transition:width 0.4s ease}
+    .nav-links a:hover{color:var(--charcoal)}
+    .nav-links a:hover::before{width:100%}
+    .btn-reserve{padding:12px 32px;background:var(--red);color:white;font-size:13px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;border:1px solid var(--red);border-radius:0;cursor:pointer;position:relative;overflow:hidden;z-index:1}
+    .btn-reserve::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;background:var(--red-dark);border-radius:50%;transform:translate(-50%,-50%);transition:width 0.6s ease,height 0.6s ease;z-index:-1}
+    .btn-reserve:hover::before{width:300px;height:300px}
+    .btn-reserve:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,30,58,0.4)}
+    
+    /* Page Header */
+    .page-header{padding:140px 0 80px;background:linear-gradient(rgba(196,30,58,0.92),rgba(214,52,71,0.92)),url('https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=2000&auto=format&fit=crop') center/cover;text-align:center;color:white;position:relative}
+    .page-header::before{content:'';position:absolute;inset:0;background:url('data:image/svg+xml,<svg width=\"100\" height=\"100\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"100\" height=\"100\" fill=\"none\"/><circle cx=\"50\" cy=\"50\" r=\"1\" fill=\"white\" opacity=\"0.1\"/></svg>');opacity:0.3}
+    .page-header-content{position:relative;z-index:2}
+    .page-header h1{font-size:clamp(40px,6vw,64px);font-weight:500;margin-bottom:20px;line-height:1.1}
+    .page-header p{font-size:18px;max-width:700px;margin:0 auto;opacity:0.95}
+    
+    /* Section Styling */
+    section{padding:clamp(80px,12vw,120px) 0}
+    .section-header{text-align:center;max-width:800px;margin:0 auto 80px}
+    .section-label{display:inline-block;font-size:12px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:16px;position:relative;padding:0 20px}
+    .section-label::before,.section-label::after{content:'';position:absolute;top:50%;width:40px;height:1px;background:var(--red)}
+    .section-label::before{left:100%;margin-left:8px}
+    .section-label::after{right:100%;margin-right:8px}
+    .section-title{font-size:clamp(32px,5vw,48px);font-weight:500;color:var(--charcoal);margin-bottom:24px;line-height:1.2}
+    .section-divider{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--red),transparent);margin:32px auto;position:relative}
+    .section-divider::before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:6px;height:6px;background:var(--red);border-radius:50%}
+    .section-description{font-size:18px;font-weight:300;color:var(--mid-gray);line-height:1.8}
+    
+    /* About Section */
+    .about{background:white;position:relative;overflow:hidden}
+    .about::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(196,30,58,0.03),transparent 70%);pointer-events:none}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,8vw,100px);align-items:center}
+    .about-content{padding:40px 0}
+    .about-content h3{font-size:clamp(24px,3vw,36px);margin-bottom:24px;color:var(--charcoal);position:relative;display:inline-block}
+    .about-content h3::after{content:'';position:absolute;bottom:-8px;left:0;width:60px;height:3px;background:var(--red)}
+    .about-content p{margin-bottom:20px;font-size:16px;line-height:1.9;color:var(--mid-gray)}
+    .about-content p:last-of-type{margin-bottom:32px}
+    .features{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px}
+    .feature-item{padding:24px;background:var(--off-white);border-left:3px solid var(--red);transition:var(--transition);position:relative;overflow:hidden}
+    .feature-item::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(196,30,58,0.05),transparent);transition:left 0.6s ease}
+    .feature-item:hover{background:var(--cream);transform:translateX(8px);box-shadow:var(--shadow-sm)}
+    .feature-item:hover::before{left:100%}
+    .feature-item h4{font-size:14px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+    .feature-item p{font-size:14px;margin:0;color:var(--mid-gray)}
+    .about-image{position:relative;height:600px;overflow:hidden;border-radius:4px}
+    .about-image::before{content:'';position:absolute;inset:0;background:linear-gradient(45deg,rgba(196,30,58,0.1),transparent);z-index:1;opacity:0;transition:opacity 0.6s ease}
+    .about-image:hover::before{opacity:1}
+    .about-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.8s cubic-bezier(0.4,0,0.2,1)}
+    .about-image:hover img{transform:scale(1.08)}
+    
+    /* Story Content */
+    .story-content{background:var(--cream);position:relative}
+    .story-content::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(196,30,58,0.05),transparent 70%);pointer-events:none}
+    .content-wrapper{max-width:900px;margin:0 auto}
+    .content-wrapper h3{font-size:clamp(28px,4vw,36px);margin-bottom:24px;color:var(--charcoal);font-weight:500}
+    .content-wrapper p{margin-bottom:24px;font-size:17px;line-height:1.9;color:var(--mid-gray)}
+    .content-wrapper p:last-child{margin-bottom:0}
+    .highlight-box{background:white;padding:40px;border-left:4px solid var(--red);margin:40px 0;box-shadow:var(--shadow-sm)}
+    .highlight-box p{margin-bottom:16px}
+    .highlight-box p:last-child{margin-bottom:0}
+    
+    /* CTA */
+    .cta{background:linear-gradient(rgba(196,30,58,0.92),rgba(214,52,71,0.92)),url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2000&auto=format&fit=crop') center/cover;color:white;text-align:center}
+    .cta .section-title{color:white}
+    .cta .section-description{color:rgba(255,255,255,0.9)}
+    .btn-primary{padding:16px 40px;background:white;color:var(--red);font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border:1px solid white;transition:var(--transition);display:inline-block;position:relative;overflow:hidden}
+    .btn-primary:hover{background:var(--red-light);color:white;border-color:var(--red-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(214,52,71,0.4)}
+    
+    /* Footer */
+    footer{background:var(--black);color:rgba(255,255,255,0.6);padding:80px 0 40px}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px}
+    .footer-brand h4{font-size:24px;color:var(--red-light);margin-bottom:20px}
+    .footer-brand p{font-size:14px;line-height:1.8;color:rgba(255,255,255,0.5)}
+    .footer-section h4{font-size:14px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--red-light);margin-bottom:24px}
+    .footer-links{list-style:none}
+    .footer-links li{margin-bottom:12px}
+    .footer-links a{font-size:14px;color:rgba(255,255,255,0.6);transition:all 0.3s ease;position:relative;display:inline-block}
+    .footer-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--red-light);transition:width 0.3s ease}
+    .footer-links a:hover{color:var(--red-light);transform:translateX(4px)}
+    .footer-links a:hover::after{width:100%}
+    .footer-bottom{text-align:center;padding-top:40px;border-top:1px solid rgba(255,255,255,0.1);font-size:13px;color:rgba(255,255,255,0.4)}
+    
+    /* Responsive */
+    @media (max-width:1024px){
+      .about-grid{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr 1fr;gap:40px}
+      .about-image{height:400px}
+    }
+    @media (max-width:768px){
+      .nav-links{display:none}
+      .features{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+      .section-label::before,.section-label::after{display:none}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress"></div>
+
+  <!-- Navigation -->
+  <div class="nav-wrapper">
+    <nav>
+      <a class="brand" href="domtogo-index.html">
+        <span>🍝</span>
+        <span>DOM TOGO</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="domtogo-index.html">Home</a></li>
+        <li><a href="domtogo-story.html">Our Story</a></li>
+        <li><a href="domtogo-menu.html">Menu</a></li>
+        <li><a href="domtogo-index.html#location">Visit</a></li>
+      </ul>
+      <a class="btn-reserve" href="tel:8452155770">Call to Order</a>
+    </nav>
+  </div>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="page-header-content">
+      <h1>Our Story</h1>
+      <p>A celebration of Italian heritage, family traditions, and the power of food to bring people together.</p>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section class="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Our Philosophy</span>
+        <h2 class="section-title">Food Connects People & Culture</h2>
+        <div class="section-divider"></div>
+        <p class="section-description">At Dom ToGo, we believe in the Italian tradition of treating everyone like family. Food is the best way to connect with people and their culture.</p>
+      </div>
+      
+      <div class="about-grid">
+        <div class="about-content">
+          <h3>The Way We Were Raised</h3>
+          <p>We treat Dom ToGo like they did when my parents were growing up. You know everyone and the ones you don't you get to know. This sense of community and connection is at the heart of everything we do.</p>
+          
+          <p>Food is the best way to connect with people and their culture. At Dom ToGo, we like to be the smile groups share with one another when they are eating together. That moment of joy, that shared experience—that's what Italian cooking is all about.</p>
+          
+          <p>Each dish is our favorite and done the same way we had them growing up. We don't take shortcuts, we don't compromise on quality, and we never forget that every meal is an opportunity to create a memory.</p>
+          
+          <div class="features">
+            <div class="feature-item">
+              <h4>Family Traditions</h4>
+              <p>Recipes and techniques passed down through generations</p>
+            </div>
+            <div class="feature-item">
+              <h4>Community Focus</h4>
+              <p>Treating every customer like part of the family</p>
+            </div>
+            <div class="feature-item">
+              <h4>Authentic Quality</h4>
+              <p>Made the same way we had them growing up</p>
+            </div>
+            <div class="feature-item">
+              <h4>Convenient Service</h4>
+              <p>Fast, on-the-go meals without sacrificing quality</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=1600&auto=format&fit=crop" alt="Italian cooking"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Content -->
+  <section class="story-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <h3>Perfect For Busy Families</h3>
+        <p>Dom ToGo is perfect for a fast on-the-go meal at both gourmet and homemade quality that will feed your entire family! We understand that modern life is busy, but that shouldn't mean sacrificing the quality and warmth of a home-cooked meal.</p>
+        
+        <p>That's why we've created a service that brings authentic Italian home cooking to your table with the convenience you need. Whether you're picking up lunch on a busy workday or bringing home dinner for the family, we're here to make your life easier.</p>
+        
+        <div class="highlight-box">
+          <p><strong>You know what they say.... Busy Moms Love Doms!</strong></p>
+          <p>This isn't just a tagline—it's the truth. We've built our reputation on understanding what busy families need: delicious, authentic Italian food that's ready when you are, at prices that won't break the bank.</p>
+        </div>
+        
+        <h3>The Italian Way</h3>
+        <p>Italian cooking is about more than just food. It's about gathering around the table, sharing stories, and creating moments of connection. It's about taking simple, quality ingredients and transforming them into something special through care, technique, and love.</p>
+        
+        <p>Our chicken cutlets are tender and golden because we take the time to bread them properly. Our meatballs are perfectly seasoned because we use our family recipe, refined over generations. Our stuffed artichokes are a labor of love, prepared the way Nonna used to make them.</p>
+        
+        <h3>Made Fresh Daily</h3>
+        <p>We don't believe in taking shortcuts. Everything at Dom ToGo is made fresh from scratch each day. Our daily specials change based on what's freshest and what's in season, ensuring you always get the best quality and most authentic flavors.</p>
+        
+        <p>When you call to ask about today's special, you're not just getting a meal—you're getting a dish that was prepared that morning with care and attention, using techniques and recipes that honor Italian culinary tradition.</p>
+        
+        <h3>Catering With Heart</h3>
+        <p>When you trust us to cater your wedding, birthday party, or family gathering, we treat it with the same care we'd give to our own family's celebration. We work with you to create menus that honor your vision while delivering the authentic Italian flavors that have made us a community favorite.</p>
+        
+        <p>From intimate family dinners to large corporate events, we bring the same passion, quality, and attention to detail that we put into every meal we serve. Because at Dom ToGo, every occasion is special, and every customer is family.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Experience Our Story</h2>
+        <p class="section-description">Join the Dom ToGo family. Call us today to taste the difference that tradition, quality, and love make.</p>
+      </div>
+      <a class="btn-primary" href="tel:8452155770">Call 845-215-5770</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>DOM TOGO</h4>
+          <p>Bringing authentic Italian home cooking to New City families. Made fresh daily with love, tradition, and the finest ingredients.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="domtogo-index.html">Home</a></li>
+            <li><a href="domtogo-story.html">Our Story</a></li>
+            <li><a href="domtogo-menu.html">Menu</a></li>
+            <li><a href="domtogo-index.html#location">Visit</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Hours</h4>
+          <ul class="footer-links">
+            <li>Mon-Fri: 2:30pm - 7:00pm</li>
+            <li>Saturday: 12:00pm - 5:00pm</li>
+            <li>Sunday: Closed</li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li>145 S Main St</li>
+            <li>New City, NY 10956</li>
+            <li><br></li>
+            <li><a href="tel:8452155770">845-215-5770</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2025 Dom ToGo. All Rights Reserved. | Authentic Italian Cuisine</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll progress bar
+    window.addEventListener('scroll',()=>{
+      const scrollProgress=document.querySelector('.scroll-progress');
+      const windowHeight=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+      const scrolled=(window.scrollY/windowHeight);
+      scrollProgress.style.transform=`scaleX(${scrolled})`;
+    });
+  </script>
+</body>
+</html>
